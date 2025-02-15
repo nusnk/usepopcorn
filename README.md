@@ -32,8 +32,8 @@ I built this project while learning **useEffect** behavior in React, understandi
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/your-username/movie-search-app.git
-cd movie-search-app
+git clone https://github.com/nusnk/usepopcorn.git
+cd usepopcorn
 ```
 
 ### 2️⃣ Install Dependencies
@@ -41,13 +41,6 @@ cd movie-search-app
 npm install
 ```
 
-### 3️⃣ Get API Key
-Sign up at [The Movie Database (TMDB)](https://www.themoviedb.org/) and get your API key.
-
-Create a `.env` file in the root directory and add:
-```env
-REACT_APP_API_KEY=your_api_key_here
-```
 
 ### 4️⃣ Run the App
 ```bash
