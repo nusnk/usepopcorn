@@ -4,9 +4,15 @@ Welcome to the **Movie Search App**! This project was created while learning Rea
 
 I built this project while learning **useEffect** behavior in React, understanding how to fetch and manage API data efficiently.
 
-## 🚀 Live Demo
+## 🧨 Deployment Status
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d2c0e1ff-6642-4b03-8928-5df3a91d909a/deploy-status)](https://app.netlify.com/sites/react-use-popcorn/deploys)
+
+
+## 🚀 Live Demo
+
+🔗 [Click here to view the live demo](https://react-use-popcorn.netlify.app/)
+
 
 ## 📌 Features
 
