@@ -6,7 +6,7 @@ I built this project while learning **useEffect** behavior in React, understandi
 
 ## 🚀 Live Demo
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR_BADGE_ID/deploy-status)](https://your-netlify-url.netlify.app)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d2c0e1ff-6642-4b03-8928-5df3a91d909a/deploy-status)](https://app.netlify.com/sites/react-use-popcorn/deploys)
 
 ## 📌 Features
 
