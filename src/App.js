@@ -197,6 +197,7 @@ function MovieDetails({
     onAddWatched(newWatchedMovie);
     onCloseMovie();
   }
+  console.log('render')
 
   useEffect(function() {
     async function getMovieDetails() {
@@ -208,6 +209,12 @@ function MovieDetails({
     }
     getMovieDetails();
   }, [selectedId]);
+
+  useEffect(function() {
+    if (!title) return;
+    document.title = `Movie | ${title}`;
+  }, [title]);
+
   return <div className="details">
     { isLoading
       ? <Loader/>
