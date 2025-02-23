@@ -212,6 +212,9 @@ function MovieDetails({
   useEffect(function() {
     if (!title) return;
     document.title = `Movie | ${title}`;
+    return function() {
+      document.title = 'usePopcorn';
+    }
   }, [title]);
 
   return <div className="details">
@@ -351,11 +354,15 @@ export default function App() {
   }
 
   useEffect(function() {
+    const controller = new AbortController();
     async function fetchMovies() {
       try {
         setError("");
         setIsLoading(true);
-        const res = await fetch(`https://www.omdbapi.com/?apikey=${KEY}&s=${query}`);
+        const res = await fetch(
+          `https://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
+          { signal: controller.signal }
+        );
         if (!res.ok) {
           throw new Error("Something went wrong with fetching movies");
         }
@@ -365,8 +372,11 @@ export default function App() {
           throw Error("Movie not found");
         }
         setMovies(data.Search);
+        setError("");
       } catch (error) {
-        setError(error.message);
+        if(error.name !== 'AbortError') {
+          setError(error.message);
+        }
       } finally {
         setIsLoading(false);
       }
@@ -377,6 +387,9 @@ export default function App() {
       return;
     }
     fetchMovies();
+    return function () {
+      controller.abort();
+    }
   },[query])
   return (
     <>
