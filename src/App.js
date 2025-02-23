@@ -197,7 +197,6 @@ function MovieDetails({
     onAddWatched(newWatchedMovie);
     onCloseMovie();
   }
-  console.log('render')
 
   useEffect(function() {
     async function getMovieDetails() {
