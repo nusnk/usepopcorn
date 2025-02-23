@@ -108,29 +108,6 @@ function Box({ children }) {
   );
 }
 
-// function WatchedBox() {
-//   const [watched, setWatched] = useState(tempWatchedData);
-  
-//   const [isOpen2, setIsOpen2] = useState(true);
-
-//   return (
-//     <div className="box">
-//       <button
-//         className="btn-toggle"
-//         onClick={() => setIsOpen2((open) => !open)}
-//       >
-//         {isOpen2 ? "–" : "+"}
-//       </button>
-//       {isOpen2 && (
-//         <>
-         
-          
-//         </>
-//       )}
-//     </div>
-//   );
-// }
-
 function MovieList({ movies, onSelectMovie }) {
   
   return (
@@ -197,6 +174,18 @@ function MovieDetails({
     onAddWatched(newWatchedMovie);
     onCloseMovie();
   }
+
+  useEffect(function (){
+    function callback(e) {
+      if(e.code === 'Escape') {
+        onCloseMovie();
+      }
+    }
+    document.addEventListener("keydown", callback);
+    return function() {
+      document.removeEventListener("keydown", callback);
+    }
+  }, [onCloseMovie]);
 
   useEffect(function() {
     async function getMovieDetails() {
@@ -386,6 +375,7 @@ export default function App() {
       setError("");
       return;
     }
+    handleCloseMovie();
     fetchMovies();
     return function () {
       controller.abort();
