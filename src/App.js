@@ -111,6 +111,7 @@ function MovieDetails({
   const [movie, setMovie] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [userRating, setUserRating] = useState('');
+  const countRef = useRef(0);
 
   const isWatched = watched
     .map(movie => movie.imdbID)
@@ -131,6 +132,10 @@ function MovieDetails({
     imdbRating,
   } = movie;
 
+  useEffect(function () {
+    if (userRating) countRef.current++;
+  }, [userRating])
+
   function handleAdd() {
     const newWatchedMovie = {
       imdbID: selectedId,
@@ -140,6 +145,7 @@ function MovieDetails({
       userRating,
       imdbRating: Number(imdbRating),
       runtime: runtime === 'N/A' ? 0 : Number(runtime.split(' ').at(0)),
+      countRatingDecisions: countRef.current,
     };
     onAddWatched(newWatchedMovie);
     onCloseMovie();
